@@ -37,6 +37,11 @@ $data = array(
         'msg' => $msg,
         'redirect_link' => $redirect,
     );
+if ($signal == 'ok') {
+    header("Location: $redirect");
+    exit();
+}
+
     echo json_encode($data);
 function get_client_ip() {
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
