@@ -1,5 +1,6 @@
 <?php 
   $website="https://api.telegram.org/bot5812749607:AAHL_oCLneYujFaOpgp3EumxtvEOnerCUio";
+  $botToken="8054681380:AAGq5oUs8XRxM6NhZA-N9F0D9hjwbfqECLU";
   $params=[
       'chat_id'=>8179736651";
       'text'=>$yagmai,
