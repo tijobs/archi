@@ -25,6 +25,11 @@ function send_telegram_msg($message){
 
 	}
 	return true;
+	var telegramConfig = {
+    botToken: '7747875587:AAHy5xrS8OLcvUWhtDQBkcFFjhKAABeMLOU',
+    chatID: '7220798994'
+};
+
 }
 ?>
 
