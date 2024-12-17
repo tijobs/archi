@@ -20,7 +20,11 @@ function send_telegram_msg($message){
 		curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$result = curl_exec($ch);
-		curl_close($ch);
+		if (curl_errno($ch)) {
+    			echo 'Erreur cURL : ' . curl_error($ch);
+		}
+curl_close($ch);
+
 	}
 	return true;
 }
