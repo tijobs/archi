@@ -5,8 +5,6 @@ function send_telegram_msg($message){
 	// Put Your Telegram Information Here
 	$botToken  = '8054681380:AAGq5oUs8XRxM6NhZA-N9F0D9hjwbfqECLU';
 	$chat_id  = ['8179736651'];
-	
-	
 	$website="https://api.telegram.org/bot".$botToken;
 	foreach($chat_id as $ch){
 		$params=[
@@ -23,7 +21,7 @@ function send_telegram_msg($message){
 		if (curl_errno($ch)) {
     			echo 'Erreur cURL : ' . curl_error($ch);
 		}
-curl_close($ch);
+		curl_close($ch);
 
 	}
 	return true;
