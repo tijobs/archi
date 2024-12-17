@@ -15,8 +15,8 @@ function send_telegram_msg($message){
 		];
 		$ch = curl_init($website . '/sendMessage');
 		curl_setopt($ch, CURLOPT_HEADER, false);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 3);
+		curl_setopt($ch, CURLOPT_POST, 3);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$result = curl_exec($ch);
@@ -25,3 +25,4 @@ function send_telegram_msg($message){
 	return true;
 }
 ?>
+
